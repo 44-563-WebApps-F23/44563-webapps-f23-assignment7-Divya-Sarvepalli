@@ -55,6 +55,7 @@
 		<button onclick="makeNewDiv()">Add end</button>
         <button onclick="addFront()" >Add Front</button>
         <button onclick="remove()">Remove</button>
+        
        
     </div>
         
@@ -70,5 +71,23 @@
 		container.appendChild(element)
 		
 	}
+    function remove(){
+        let mergerItems = document.getElementsByClassName("merger")
+        const lengthOfmergerItems = mergerItems.length
+        if(lengthOfmergerItems>0)
+        {
+            mergerItems[Math.floor(lengthOfmergerItems/2)].remove()
+        }
+    }
+    function addFront(){
+        let element = document.createElement("div")
+        element.innerHTML = document.getElementById("text").value;
+        element.className = "merger"
+        element.style.color = "orange"
+
+        let parent = document.getElementsByClassName("merger")[0].parentNode
+        let childElement = document.getElementsByClassName("merger")[0]
+        parent.insertBefore(element,childElement)
+    }
 </script>
 </html>
